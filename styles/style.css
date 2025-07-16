@@ -1,0 +1,195 @@
+/* --- Paso 1: Importar fuentes elegantes de Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* --- Variables de Color para una Paleta Elegante --- */
+:root {
+    --color-primario: #2c3e50; /* Un azul pizarra oscuro para textos principales */
+    --color-secundario: #c7a17a; /* Un tono dorado/bronce para acentos y botones */
+    --color-fondo: #fdfaf6; /* Un blanco roto/beige muy suave para el fondo */
+    --color-blanco: #ffffff;
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-cuerpo: 'Lato', sans-serif;
+}
+
+/* --- Estilos Generales del Cuerpo --- */
+body {
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-primario);
+    font-size: 18px;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px; /* Un poco más de espacio */
+    margin: auto;
+    overflow: hidden;
+    padding: 30px 0;
+}
+
+/* --- Encabezado Limpio y Centrado --- */
+header {
+    background: transparent; /* Fondo transparente para que se integre */
+    color: var(--color-primario);
+    padding: 2rem 0;
+    text-align: center;
+    font-family: var(--fuente-titulos);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5em; /* Aumentamos el tamaño */
+    color: var(--color-secundario); /* Usamos el color dorado */
+}
+
+/* --- SECCIÓN HERO MEJORADA --- */
+/* El problema principal era el texto negro sobre la imagen.
+   Solución: Añadimos una capa semitransparente sobre la imagen para que el texto blanco resalte siempre. */
+.hero {
+    background: url(https://i.imgur.com/uAENRkH.jpeg) no-repeat center center/cover;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative; /* Necesario para la capa de superposición */
+    padding: 0 20px;
+}
+
+/* La capa oscura semitransparente */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* Capa negra con 35% de opacidad */
+}
+
+/* Estilos para el texto del Hero, que debe estar por encima de la capa */
+.hero h2,
+.hero p {
+    position: relative; /* Para que se ponga por encima de la capa ::before */
+    color: var(--color-blanco); /* ¡Texto blanco para que sea legible! */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para resaltar aún más */
+}
+
+.hero h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 6em; /* Aumentamos significativamente para más impacto */
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.3em;
+    max-width: 600px;
+}
+
+/* --- Estilos de las Secciones --- */
+section {
+    padding: 40px 20px;
+    background: var(--color-blanco);
+    margin: 0 auto 30px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra más suave */
+    border-radius: 12px;
+}
+
+section h2 {
+    text-align: center;
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* --- Tarjetas de Regalo con Interacción --- */
+.gift-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.gift-option {
+    background: var(--color-fondo); /* Usamos el color de fondo general */
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1 1 calc(50% - 60px); /* Dos columnas en pantallas grandes */
+    box-sizing: border-box;
+    min-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    overflow-wrap: break-word;
+}
+
+/* Efecto al pasar el mouse por encima de las tarjetas */
+.gift-option:hover {
+    transform: translateY(-8px); /* La tarjeta se eleva un poco */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.gift-option h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-secundario); /* Acento dorado */
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.gift-option p {
+    font-size: 1em;
+}
+
+/* --- Botones y Enlaces Mejorados --- */
+.button, .gift-option a {
+    display: inline-block;
+    background: var(--color-secundario); /* Color dorado */
+    color: var(--color-blanco);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+    text-transform: uppercase; /* Mayúsculas para un look más formal */
+    letter-spacing: 1px; /* Espacio entre letras */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    word-break: break-all;
+}
+
+.button:hover, .gift-option a:hover {
+    background: #a8825e; /* Un dorado más oscuro al pasar el mouse */
+    color: var(--color-blanco);
+    transform: scale(1.05); /* El botón se agranda un poco */
+}
+
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--color-primario); /* Usamos el color principal oscuro */
+    color: #ccc; /* Un gris claro para el texto del footer */
+}
+
+/* Centrar el contenido de la sección de contacto */
+.contact-info {
+    text-align: center;
+}
+
+/* --- Diseño Adaptable (Responsive) --- */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    header h1 { font-size: 2em; }
+    .hero h2 { font-size: 3em; }
+    .hero p { font-size: 1em; }
+    section h2 { font-size: 2em; }
+    .gift-option {
+        flex: 1 1 100%; /* Una sola columna en móviles */
+    }
+}
