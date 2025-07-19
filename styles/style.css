@@ -49,7 +49,7 @@ header h1 {
 /* El problema principal era el texto negro sobre la imagen.
    Solución: Añadimos una capa semitransparente sobre la imagen para que el texto blanco resalte siempre. */
 .hero {
-    background: url('../images/foto-arco.jpg') no-repeat center center/cover;
+    background: url('../images/fondo.png') no-repeat center 60%/cover;
     height: 450px;
     display: flex;
     justify-content: center;
