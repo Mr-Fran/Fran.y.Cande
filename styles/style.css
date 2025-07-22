@@ -46,7 +46,6 @@ header h1 {
 }
 
 .hero {
-    /* La línea más importante que restaura la foto: */
     background: url('../images/fondo.png') no-repeat center center/cover;
     
     height: 450px;
@@ -200,7 +199,8 @@ footer {
 
     /* Regla del Hero específica para celulares */
     .hero {
-        height: 85vh;
-        min-height: 500px;
+        background-image: url('../images/fondo-celular.png');
+        height: 90vh;
+        min-height: 550px;
     }
 }
