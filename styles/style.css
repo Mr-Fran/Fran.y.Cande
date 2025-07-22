@@ -200,7 +200,7 @@ footer {
 
     /* Regla del Hero específica para celulares */
     .hero {
-        height: 60vh;
-        min-height: 400px;
+        height: 85vh;
+        min-height: 500px;
     }
 }
