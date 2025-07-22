@@ -45,18 +45,17 @@ header h1 {
     color: var(--color-secundario); /* Usamos el color dorado */
 }
 
-/* --- SECCIÓN HERO MEJORADA --- */
-/* El problema principal era el texto negro sobre la imagen.
-   Solución: Añadimos una capa semitransparente sobre la imagen para que el texto blanco resalte siempre. */
 .hero {
-    background: url('../images/fondo.png') no-repeat center 60%/cover;
+    /* La línea más importante que restaura la foto: */
+    background: url('../images/fondo.png') no-repeat center center/cover;
+    
     height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    position: relative; /* Necesario para la capa de superposición */
+    position: relative;
     padding: 0 20px;
 }
 
@@ -145,19 +144,24 @@ section h2 {
     font-size: 1em;
 }
 
-/* --- Botones y Enlaces Mejorados --- */
+/* --- REGLA PARA LOS BOTONES --- */
 .button, .gift-option a {
     display: inline-block;
-    background: var(--color-secundario); /* Color dorado */
+    background: var(--color-secundario);
     color: var(--color-blanco);
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 8px;
     margin-top: 15px;
     font-weight: bold;
-    text-transform: uppercase; /* Mayúsculas para un look más formal */
-    letter-spacing: 1px; /* Espacio entre letras */
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* --- REGLA ESPECÍFICA PARA EL PÁRRAFO CON EL LINK LARGO --- */
+/* Esta regla se encarga de que el link largo se corte bien en TODAS las pantallas */
+.long-link-text {
     word-break: break-all;
 }
 
@@ -180,7 +184,7 @@ footer {
     text-align: center;
 }
 
-/* --- Diseño Adaptable (Responsive) --- */
+/* --- SECCIÓN RESPONSIVE (PARA CELULARES) --- */
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -189,7 +193,14 @@ footer {
     .hero h2 { font-size: 3em; }
     .hero p { font-size: 1em; }
     section h2 { font-size: 2em; }
+    
     .gift-option {
-        flex: 1 1 100%; /* Una sola columna en móviles */
+        flex: 1 1 100%;
+    }
+
+    /* Regla del Hero específica para celulares */
+    .hero {
+        height: 60vh;
+        min-height: 400px;
     }
 }
